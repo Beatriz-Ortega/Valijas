@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 
 export const AppRoutes: Routes = [
   {
@@ -9,7 +10,8 @@ export const AppRoutes: Routes = [
     pathMatch: 'full',
   }, {
     path: '',
-    component: AdminLayoutComponent,
+    component: LoginLayoutComponent,
+    // component: AdminLayoutComponent,
     children: [
         {
       path: '',

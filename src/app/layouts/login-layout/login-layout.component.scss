@@ -1,0 +1,34 @@
+@import '../../../styles/colors';
+
+.container-login {
+  background-image: url('./assets/images/fondo-bci.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; 
+
+  &_form{
+    @include color-palette;
+    background-color: white; 
+    padding: 20px; 
+    border-radius: 20px;
+    opacity: 0.98;
+    border: solid 2px var(--color-blue);
+
+    &_forget-password {
+      color: var(--color-blue);
+      &:hover{
+        color: --color-digitech-blue;
+      }
+    }
+  }
+  .btn-primary {
+    @include color-palette;
+    background-color: var(--color-blue);
+    &:hover {
+      background-color: var(--color-digitech-blue) !important;
+    }
+  }
+
+
+}
+
