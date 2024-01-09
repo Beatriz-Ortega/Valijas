@@ -1,0 +1,34 @@
+.sidebar-wrapper {
+  --color-blue: #2C70B8;
+  --color-green: #0C9647;
+  --color-red: #EF3942;
+  --color-yellow: #FDD700;
+  --color-digitech-blue: #2A307A;
+  --color-digitech-green: #00C33D;
+  --color-digitech-gray: #DEDEDE;
+  --color-digitech-white: white;
+  background-color: var(--color-blue);
+}
+.sidebar-wrapper .logo .simple-text {
+  color: var(--color-digitech-white);
+}
+.sidebar-wrapper .logo:after {
+  background-color: var(--color-digitech-gray);
+}
+.sidebar-wrapper .nav li a {
+  color: var(--color-digitech-white);
+  transition: color 0.3s ease;
+}
+.sidebar-wrapper .nav li a:hover {
+  color: white;
+}
+.sidebar-wrapper .nav li a i {
+  color: var(--color-digitech-white);
+  transition: color 0.3s ease;
+}
+.sidebar-wrapper .nav li a i:hover {
+  color: white;
+}
+.sidebar-wrapper .nav li.active a {
+  color: white;
+}/*# sourceMappingURL=sidebar.component.css.map */

@@ -1,0 +1,167 @@
+<section class="recepcion">
+  <div class="row">
+    <div class="col-12">
+      <div class="contenedor-principal">
+        <ul ngbNav [(activeId)]="activeId" class="nav-tabs px-4 px-lg-5 content-tabset justify-content-end justify-content-md-start nav">
+          <li [ngbNavItem]="1">
+            <button ngbNavLink [class.seleccionado]="activeId === 1" class="bg-white nav-link" (click)="mostrarIngreso()">Ingreso</button>
+          </li>
+          <li [ngbNavItem]="2">
+            <button ngbNavLink [class.seleccionado]="activeId === 2" class="bg-white nav-link" (click)="mostrarHistorial()">Historial</button>
+          </li>
+        </ul>
+        <div [ngSwitch]="seccionActiva" class="fondo-blanco">
+          <div class="franja-superior"></div>
+          <div *ngSwitchCase="'ingreso'" class="espacio-blanco-ingreso">
+            <div class="col-12 d-flex align-items-center">
+              <div class="form-group col-8 ms-3">
+                <label for="codigoBarrasValija">Código de Barras Valija:</label>
+                <input type="text" class="form-control" id="codigoBarrasValija" [(ngModel)]="codigoBarrasValija">
+              </div>
+              <button type="button" class="btn color-boton-subir mt-2 mb-0 ms-3" [disabled]="ingresoButtonUsedValija" (click)="toggleIngresoValija()">
+                Subir
+              </button>
+            </div>
+            <div #collapseIngreso="ngbCollapse" [(ngbCollapse)]="ingresoCollapsedValija">
+              <div class="card" *ngIf="ingresoPressedValija">
+                <div class="card-body">
+                  <div class="col-12 d-flex align-items-center">
+                    <div class="form-group col-8 ms-3">
+                      <label for="codigoBarras">Código de Barras Ubicación:</label>
+                      <input type="text" class="form-control" id="codigoBarrasUbicacion" [(ngModel)]="codigoBarras">
+                    </div>
+                    <button type="button" class="btn color-boton-subir mt-2 mb-0 ms-3" [disabled]="ingresoButtonUsedUbicacion" (click)="toggleIngresoUbicacion()">
+                      Subir
+                    </button>
+                  </div>
+                  <div #collapseIngreso="ngbCollapse" [(ngbCollapse)]="ingresoCollapsedUbicacion">
+                    <div class="card" *ngIf="ingresoPressedUbicacion">
+                      <div class="card-body">
+                        <div class="col-12 d-flex justify-content-center align-items-center">
+                          <div class="form-group col-8">
+                            <label for="codigoBarras">Código de Barras Sobres:</label>
+                            <input type="text" class="form-control" id="codigoBarras" [(ngModel)]="codigoBarras">
+                          </div>
+                          <div class="col-4">
+                            <button class="btn color-boton-subir mt-2 mb-0 ms-3" (click)="subirSobre()">Subir</button>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <p>Sobres</p>
+                        </div>
+                        <div class="col-12">
+                          <table class="table">
+                            <!-- Cabecera de la tabla -->
+                            <thead class="table-dark text-center table-color-ingreso">
+                              <tr>
+                                <th>Sobre</th>
+                                <th>Origen</th>
+                                <th>Usuario</th>
+                                <th>Fecha/Hora</th>
+                                <th>Estado</th>
+                                <th>Detalles</th>
+                              </tr>
+                            </thead>
+                            <!-- Cuerpo de la tabla -->
+                            <tbody class="text-center">
+                              <tr *ngFor="let sobre of sobres">
+                                <td>{{ sobre.sobre }}</td>
+                                <td>{{ sobre.origen }}</td>
+                                <td>{{ sobre.usuario }}</td>
+                                <td>{{ sobre.fechaHora }}</td>
+                                <td>{{ sobre.estado }}</td>
+                                <td>{{ sobre.detalle }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'historial'" class="espacio-blanco-historial">
+            <div class="mt-3">
+              <div class="cabecera d-flex justify-content-around align-items-center">
+                <span class="accordion-text ms-3 me-5">Valija</span>
+                <span class="accordion-text me-5">Origen</span>
+                <span class="accordion-text me-5">Usuario</span>
+                <span class="accordion-text me-5">Fecha/Hora</span>
+                <span class="accordion-text me-5">Estado</span>
+              </div>
+              <div>
+                <ng-container *ngFor="let valija of valijas; let i = index">
+                  <div class="item-acordion">
+                    <div ngbAccordion>
+                      <div ngbAccordionItem [collapsed]="acordeonActivo !== i">
+                        <h2 ngbAccordionHeader>
+                          <button ngbAccordionButton (click)="mostrarDetalles(i)">
+                            <span class="accordion-text">
+                              {{ valija.valija }}
+                            </span>
+                            <span class="accordion-text">
+                              {{ valija.origen }}
+                            </span>
+                            <span class="accordion-text">
+                              {{ valija.usuario }}
+                            </span>
+                            <span class="accordion-text">
+                              {{ valija.fechaHora }}
+                            </span>
+                            <span class="accordion-text">
+                              {{ valija.estado }}
+                            </span>
+                          </button>
+                        </h2>
+                        <div ngbAccordionCollapse>
+                          <div ngbAccordionBody>
+                            <ng-template>
+                              <table class="table">
+                                <!-- Cabecera de la tabla -->
+                                <thead class="table-dark text-center table-color-historial">
+                                  <tr>
+                                    <th>Sobre</th>
+                                    <th>Origen</th>
+                                    <th>Usuario</th>
+                                    <th>Fecha/Hora</th>
+                                    <th>Estado</th>
+                                    <th>Detalles</th>
+                                  </tr>
+                                </thead>
+                                <!-- Cuerpo de la tabla -->
+                                <tbody class="text-center">
+                                  <tr *ngFor="let sobre of sobres">
+                                    <td>{{ sobre.sobre }}</td>
+                                    <td>{{ sobre.origen }}</td>
+                                    <td>{{ sobre.usuario }}</td>
+                                    <td>{{ sobre.fechaHora }}</td>
+                                    <td>{{ sobre.estado }}</td>
+                                    <td>
+                                      <fa-icon [icon]="faCoffee"></fa-icon>
+                                      <!-- Otros detalles de la valija -->
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+

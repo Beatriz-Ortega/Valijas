@@ -1,0 +1,8 @@
+@import '../../../styles/colors';
+
+.wrapper{
+  @include color-palette;
+  .main-panel{
+    background-color: var(--color-digitech-gray);
+  }
+}

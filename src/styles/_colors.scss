@@ -1,0 +1,22 @@
+// BCI COLORS
+$color-blue  : #2C70B8;
+$color-green : #0C9647;
+$color-red   : #EF3942;
+$color-yellow: #FDD700;
+
+// DIGITECH COLORS
+$color-digitech-blue : #2A307A;
+$color-digitech-green: #00C33D;
+$color-digitech-gray : #DEDEDE;
+$color-digitech-white: white;
+
+@mixin color-palette {
+  --color-blue          : #{$color-blue};
+  --color-green         : #{$color-green};
+  --color-red           : #{$color-red};
+  --color-yellow        : #{$color-yellow};
+  --color-digitech-blue : #{$color-digitech-blue};
+  --color-digitech-green: #{$color-digitech-green};
+  --color-digitech-gray : #{$color-digitech-gray};
+  --color-digitech-white: #{$color-digitech-white};
+}

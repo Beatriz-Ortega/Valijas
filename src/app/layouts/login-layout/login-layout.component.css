@@ -1,0 +1,41 @@
+.container-login {
+  background-image: url("./assets/images/fondo-bci.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.container-login_form {
+  --color-blue: #2C70B8;
+  --color-green: #0C9647;
+  --color-red: #EF3942;
+  --color-yellow: #FDD700;
+  --color-digitech-blue: #2A307A;
+  --color-digitech-green: #00C33D;
+  --color-digitech-gray: #DEDEDE;
+  --color-digitech-white: white;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0.98;
+  border: solid 2px var(--color-blue);
+}
+.container-login_form_forget-password {
+  color: var(--color-blue);
+}
+.container-login_form_forget-password:hover {
+  color: --color-digitech-blue;
+}
+.container-login .btn-primary {
+  --color-blue: #2C70B8;
+  --color-green: #0C9647;
+  --color-red: #EF3942;
+  --color-yellow: #FDD700;
+  --color-digitech-blue: #2A307A;
+  --color-digitech-green: #00C33D;
+  --color-digitech-gray: #DEDEDE;
+  --color-digitech-white: white;
+  background-color: var(--color-blue);
+}
+.container-login .btn-primary:hover {
+  background-color: var(--color-digitech-blue) !important;
+}/*# sourceMappingURL=login-layout.component.css.map */

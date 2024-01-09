@@ -1,1 +1,13 @@
-/*# sourceMappingURL=admin-layout.component.css.map */
+.wrapper {
+  --color-blue: #2C70B8;
+  --color-green: #0C9647;
+  --color-red: #EF3942;
+  --color-yellow: #FDD700;
+  --color-digitech-blue: #2A307A;
+  --color-digitech-green: #00C33D;
+  --color-digitech-gray: #DEDEDE;
+  --color-digitech-white: white;
+}
+.wrapper .main-panel {
+  background-color: var(--color-digitech-gray);
+}/*# sourceMappingURL=admin-layout.component.css.map */
