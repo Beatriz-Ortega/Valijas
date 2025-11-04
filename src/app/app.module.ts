@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 
 import { SidebarModule } from './sidebar/sidebar.module';
-import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
@@ -27,8 +25,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule,
     NgbModule
   ],
   providers: [],
